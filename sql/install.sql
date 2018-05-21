@@ -1,0 +1,22 @@
+CREATE DATABASE chats CHARSET utf8;
+set NAMES GBK;
+use chats;
+
+CREATE TABLE `user`(
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL DEFAULT '',
+  `pwd` VARCHAR(255) NOT NULL DEFAULT  '',
+  `sex` VARCHAR(255) NOT NULL DEFAULT '',
+  `ip` VARCHAR(255)  NOT NULL DEFAULT '',
+  `createtime` INT UNSIGNED NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `chat`(
+  `id` INT UNSIGNED AUTO_INCREMENT,
+  `user_id` INT UNSIGNED DEFAULT 0,
+  `content` TEXT,
+  `time` INT UNSIGNED NOT NULL DEFAULT 0,
+  `type` ENUM('login','loginout','system','chat') NOT NULL DEFAULT 'chat',
+  PRIMARY KEY (`id`)
+);
